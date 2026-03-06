@@ -2,7 +2,7 @@ import type { Express } from "express";
 import type { Server } from "http";
 import { storage } from "./storage";
 import { insertLeadSchema } from "@shared/schema";
-import { setupAuth, registerAuthRoutes } from "./replit_integrations/auth";
+// import { setupAuth, registerAuthRoutes } from "./replit_integrations/auth";
 import { z } from "zod";
 
 async function seedDatabase() {
@@ -84,8 +84,8 @@ export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
-  await setupAuth(app);
-  registerAuthRoutes(app);
+ // await setupAuth(app);
+// registerAuthRoutes(app);
 
   app.get("/api/plans", async (_req, res) => {
     const plans = await storage.getPlans();
