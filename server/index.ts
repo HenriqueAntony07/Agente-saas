@@ -2,6 +2,7 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
+import session from "express-session";
 
 const app = express();
 const httpServer = createServer(app);
@@ -11,6 +12,14 @@ declare module "http" {
     rawBody: unknown;
   }
 }
+
+app.use(
+  session({
+    secret: "super-secret",
+    resave: false,
+    saveUninitialized: false
+  })
+);
 
 app.use(
   express.json({

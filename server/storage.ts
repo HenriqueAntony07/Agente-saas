@@ -19,6 +19,21 @@ export class DatabaseStorage implements IStorage {
     return db.select().from(plans).orderBy(asc(plans.order));
   }
 
+  async getUserByEmail(email: string) {
+  return db.query.users.findFirst({
+    where: eq(users.email, email)
+  });
+}
+
+  async createUser(data: InsertUser) {
+  const [user] = await db
+    .insert(users)
+    .values(data)
+    .returning();
+
+  return user;
+}
+
   async createPlan(plan: InsertPlan): Promise<Plan> {
     const [newPlan] = await db.insert(plans).values(plan).returning();
     return newPlan;

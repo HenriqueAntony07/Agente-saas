@@ -5,6 +5,21 @@ import { insertLeadSchema } from "@shared/schema";
 // import { setupAuth, registerAuthRoutes } from "./replit_integrations/auth";
 import { z } from "zod";
 
+import {
+  registerUser,
+  loginUser,
+  getCurrentUser,
+  logout
+} from "./auth";
+
+app.post("/api/auth/register", registerUser);
+
+app.post("/api/auth/login", loginUser);
+
+app.get("/api/auth/user", getCurrentUser);
+
+app.post("/api/auth/logout", logout);
+
 async function seedDatabase() {
   const existingPlans = await storage.getPlans();
   if (existingPlans.length === 0) {

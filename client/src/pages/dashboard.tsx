@@ -14,6 +14,14 @@ import {
   Clock,
 } from "lucide-react";
 
+const { user, isLoading } = useAuth();
+
+if (isLoading) return <div>Loading</div>;
+
+if (!user) {
+  window.location.href = "/login";
+}
+
 const stats = [
   { label: "Mensagens Hoje", value: "0", icon: MessageCircle, description: "Total de mensagens processadas" },
   { label: "Conversas Ativas", value: "0", icon: Users, description: "Conversas em andamento" },

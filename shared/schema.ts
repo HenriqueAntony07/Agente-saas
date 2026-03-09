@@ -5,6 +5,20 @@ import { z } from "zod";
 
 export * from "./models/auth";
 
+export const users = pgTable("users", {
+  id: serial("id").primaryKey(),
+
+  email: text("email").notNull().unique(),
+
+  password: text("password").notNull(),
+
+  name: text("name"),
+
+  plan: text("plan").default("starter"),
+
+  createdAt: timestamp("created_at").defaultNow()
+});
+
 export const leads = pgTable("leads", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
