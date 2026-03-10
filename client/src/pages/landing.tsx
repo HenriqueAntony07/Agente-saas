@@ -118,7 +118,7 @@ function HeroSection() {
               Fale Conosco
             </a>
           </Button>
-          <Button size="lg" variant="outline" className="backdrop-blur-sm bg-white/5" asChild data-testid="button-hero-login">
+          <Button size="lg" variant="outline" className="backdrop-blur-sm bg-white" asChild data-testid="button-hero-login">
             <a href="/api/login">
               Entrar
               <ArrowRight className="w-5 h-5 ml-2" />
