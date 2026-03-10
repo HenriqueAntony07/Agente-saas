@@ -11,7 +11,7 @@
   --opaque-button-border-intensity: -8; /* In terms of percentages */
 
   /* Backgrounds applied on top of other backgrounds when hovered/active */
-  --elevate-1: rgba(0,0,0, .03);
+  --elevate-1: rgb(255 255 255);
   --elevate-2: rgb(255, 255, 255);
 
   --background: 0 0% 100%;
@@ -129,8 +129,8 @@
   --opaque-button-border-intensity: 9;  /* In terms of percentages */
 
   /* Backgrounds applied on top of other backgrounds when hovered/active */
-  --elevate-1: rgba(255,255,255, .04);
-  --elevate-2: rgba(255,255,255, .09);
+  --elevate-1: rgb(255 255 255);
+  --elevate-2: rgb(255 255 255);
 
   --background: 160 10% 8%;
 
@@ -277,7 +277,7 @@
   }
 
   .toggle-elevate.toggle-elevated::before {
-    background-color: var(--elevate-2);
+    background-color: white;
   }
 
   /* If there's a 1px border, adjust the inset so that it covers that parent's border */
