@@ -118,15 +118,20 @@ function HeroSection() {
               Fale Conosco
             </a>
           </Button>
-          <Button  size="lg"
-          className="bg-white text-gray-900 hover:bg-gray-100 no-default-hover-elevate"
-          asChild
-          data-testid="button-hero-login">
-          <a href="/api/login">
+          <a
+            href="/api/login"
+            data-testid="button-hero-login"
+            className="inline-flex items-center justify-center gap-2
+            px-8 h-10 rounded-md
+            bg-white text-gray-900
+            border border-gray-200
+            shadow-sm
+            hover:bg-gray-100
+            transition-colors"
+          >
             Entrar
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </a>
-        </Button>
+            <ArrowRight className="w-5 h-5" />
+        </a>
         </motion.div>
         <motion.div
           className="mt-16 flex flex-wrap items-center justify-center gap-8 text-gray-400"
