@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
+
 export default defineConfig({
   plugins: [
     react(),
@@ -35,17 +36,12 @@ export default defineConfig({
     emptyOutDir: true,
   },
 
-  server: {
-    proxy: {
-      "/api": {
-        target: "http://localhost:5000",
-        changeOrigin: true,
-      },
-    },
+ server: {
+  open: true,
 
-    fs: {
-      strict: true,
-      deny: ["**/.*"],
-    },
+  fs: {
+    strict: true,
+    deny: ["**/.*"],
   },
+},
 });

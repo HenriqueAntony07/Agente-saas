@@ -3,6 +3,7 @@ import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
 import session from "express-session";
+import open from "open";
 
 const app = express();
 const httpServer = createServer(app);
@@ -100,7 +101,12 @@ app.use((req, res, next) => {
   // It is the only port that is not firewalled.
   const port = parseInt(process.env.PORT || "5000", 10);
 
-httpServer.listen(port, "0.0.0.0", () => {
+
+httpServer.listen(port, "0.0.0.0", async () => {
   log(`serving on port ${port}`);
+
+  if (process.env.NODE_ENV !== "production") {
+    await open(`http://localhost:${port}`);
+  }
 });
 })();
